@@ -10,6 +10,22 @@ gc-trigger is a library for extension libraries that use many memories in extern
 
 Ruby's GC doesn't care about memory usage of external libraries. It means that Ruby's GC isn't run when extension library uses huge memories in external libraries. For example, Ruby's GC isn't run when you open many images by the extension library.
 
+## Effect
+
+Here is a sample program that shows gc-trigger effect. It just creates 1000 images. They can be GC-ed because they aren't referenced.
+
+```ruby
+require "cairo"
+
+1000.times do |i|
+  Cairo::ImageSurface.new(:argb32, 6000, 6000)
+end
+```
+
+Here is a graph that shows gc-trigger runs GC when it's needed. Memory usage is stable with gc-trigger.
+
+![](https://raw.githubusercontent.com/kou/gc-trigger/master/sample/cairo-memory.png)
+
 ## Install
 
 ```
