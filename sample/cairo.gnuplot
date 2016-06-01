@@ -23,8 +23,8 @@ set output "cairo-memory.pdf"
 plot "cairo-gc-trigger.tsv"    using 1:3 \
         with line \
         linestyle 1 \
-        title "with gc-trace", \
+        title "with gc-trigger", \
      "cairo-no-gc-trigger.tsv" using 1:3 \
         with line \
         linestyle 2 \
-        title "without gc-trace"
+        title "without gc-trigger"
