@@ -38,6 +38,7 @@ Gem::Specification.new do |spec|
   spec.files += Dir.glob("ext/**/*.{c,h,rb}")
   spec.files += Dir.glob("doc/text/*")
   spec.files += Dir.glob("sample/**/*.rb")
+  spec.extensions += ["ext/gc_trigger/extconf.rb"]
 
   spec.add_development_dependency("bundler")
   spec.add_development_dependency("rake")
