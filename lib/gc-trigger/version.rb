@@ -14,5 +14,5 @@
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 module GCTrigger
-  VERSION = "1.0.0"
+  VERSION = "1.0.1"
 end
