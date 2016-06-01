@@ -13,6 +13,11 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-require "gc_trigger.so"
+begin
+  major, minor, _ = RUBY_VERSION.split(".")
+  require "#{major}.#{minor}/gc_trigger.so"
+rescue LoadError
+  require "gc_trigger.so"
+end
 
 require "gc-trigger/version"
