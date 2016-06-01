@@ -15,11 +15,11 @@ def create_image_surface(width, height)
   surface
 end
 
-10000.times do |i|
+1000.times do |i|
   create_image_surface(6000, 6000)
   case File.readlines("/proc/self/status").grep(/\AVmRSS:/)[0]
   when /\AVmRSS:\s+(\d+)\s+kB/
     vm_rss = $1.to_i * 1024
   end
-  puts [GC.count, i, vm_rss].join(",")
+  puts [i, GC.count, vm_rss].join(",")
 end
