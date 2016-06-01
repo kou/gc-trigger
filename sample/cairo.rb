@@ -19,7 +19,7 @@ end
   create_image_surface(6000, 6000)
   case File.readlines("/proc/self/status").grep(/\AVmRSS:/)[0]
   when /\AVmRSS:\s+(\d+)\s+kB/
-    vm_rss = $1.to_i * 1024
+    vm_rss_mib = $1.to_i / 1024.0
   end
-  puts [i, GC.count, vm_rss].join(",")
+  puts [i, GC.count, vm_rss_mib].join("\t")
 end
